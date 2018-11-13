@@ -13,7 +13,7 @@ defmodule Hangman.Game do
 
   def make_move(game = %{game_state: state}, _) when state in [:won, :lost] do
     game
-    |> return_with_tally
+    |> return_with_tally()
   end
 
   def make_move(game, guess) do
