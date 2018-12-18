@@ -2,9 +2,9 @@ defmodule TextClient.Summary do
   def display(game) do
     IO.puts([
       "\n",
-      "Word so far: #{Enum.join(game.letters, " ")}\n",
-      "Letters used: #{format_letters(game.used)}\n",
-      "Guesses left: #{game.turns_left}\n"
+      "Word so far: #{Enum.join(game.tally.letters, " ")}\n",
+      "Letters used: #{format_letters(game.tally.used)}\n",
+      "Guesses left: #{game.tally.turns_left}\n"
     ])
 
     game

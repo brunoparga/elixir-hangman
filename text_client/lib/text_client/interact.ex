@@ -3,11 +3,12 @@ defmodule TextClient.Interact do
 
   def start() do
     Hangman.new_game()
+    |> Hangman.get_tally()
     |> setup_state()
     |> Player.play()
   end
 
-  defp setup_state(game) do
-    %State{tally: game}
+  defp setup_state({pid, tally}) do
+    %State{game_service: pid, tally: tally}
   end
 end
