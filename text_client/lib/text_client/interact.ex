@@ -3,7 +3,7 @@ defmodule TextClient.Interact do
 
   def start() do
     Hangman.new_game()
-    |> Hangman.get_tally()
+    |> Hangman.initial_tally()
     |> setup_state()
     |> Player.play()
   end
