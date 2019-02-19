@@ -12,7 +12,7 @@ defmodule Hangman.Server do
 
   def handle_call({:initial_tally}, _from, game) do
     tally = Hangman.Tally.create_tally(game)
-    {:reply, tally, game}
+    {:reply, {self(), tally}, game}
   end
 
   def handle_call({:make_move, guess}, _from, game) do
