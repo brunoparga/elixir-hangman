@@ -17,6 +17,7 @@ defmodule GallowsWeb.Router do
     pipe_through(:browser)
 
     get("/", HangmanController, :create_game)
+    post("/", HangmanController, :create_game)
     put("/", HangmanController, :make_move)
   end
 
