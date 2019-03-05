@@ -44,8 +44,7 @@ defmodule Hangman.Game do
   end
 
   defp score_guess(game = %{turns_left: 1}, _not_good_guess) do
-    # IDEA: have this update the turns left to 0?
-    Map.put(game, :game_state, :lost)
+    %{game | game_state: :lost, turns_left: 0}
   end
 
   defp score_guess(game = %{turns_left: turns_left}, _not_good_guess) do
