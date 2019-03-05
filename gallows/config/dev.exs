@@ -19,11 +19,6 @@ config :gallows, GallowsWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
-  ],
-  protocol_options: [
-    max_header_name_length: 64,
-    max_header_value_length: 4096,
-    max_headers: 100
   ]
 
 # ## SSL Support
