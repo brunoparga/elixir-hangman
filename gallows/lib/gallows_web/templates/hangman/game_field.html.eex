@@ -1,0 +1,5 @@
+<%= game_state(@tally.game_state) %>
+<div style="max-width: 400px; max-height: 800px;">
+  <%= render "_gallows.html", left: @tally.turns_left %>
+</div>
+<%= render "_status.html", tally: @tally, conn: @conn %>
