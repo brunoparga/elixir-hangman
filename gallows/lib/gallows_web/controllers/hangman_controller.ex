@@ -2,7 +2,7 @@ defmodule GallowsWeb.HangmanController do
   use GallowsWeb, :controller
 
   def create_game(conn, _params) do
-    {game, tally} = Hangman.new_game()
+    game = Hangman.new_game()
 
     conn
     |> put_session(:game, game)

@@ -10,9 +10,8 @@ defmodule Hangman.Server do
     {:ok, Game.new_game()}
   end
 
-  def handle_call({:initial_tally}, _from, game) do
-    tally = Hangman.Tally.create_tally(game)
-    {:reply, {self(), tally}, game}
+  def handle_call({:tally}, _from, game) do
+    {:reply, Hangman.Tally.tally(game), game}
   end
 
   def handle_call({:make_move, guess}, _from, game) do

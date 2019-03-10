@@ -1,5 +1,5 @@
 defmodule Hangman.Tally do
-  def create_tally(game) do
+  def tally(game) do
     %{
       game_state: game.game_state,
       turns_left: game.turns_left,
