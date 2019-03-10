@@ -3,6 +3,7 @@ defmodule GallowsWeb.HangmanController do
 
   def create_game(conn, _params) do
     game = Hangman.new_game()
+    tally = Hangman.tally(game)
 
     conn
     |> put_session(:game, game)
