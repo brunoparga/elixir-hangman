@@ -6,10 +6,23 @@ defmodule Hangman.Tally do
             used: []
 
   def tally(game) do
+    tally(game, game.game_state == :lost)
+  end
+
+  defp tally(game, false) do
     %Hangman.Tally{
       game_state: game.game_state,
       turns_left: game.turns_left,
       letters: game.letters |> reveal_guessed(game.used),
+      used: game.used |> MapSet.to_list()
+    }
+  end
+
+  defp tally(game, true) do
+    %Hangman.Tally{
+      game_state: game.game_state,
+      turns_left: game.turns_left,
+      letters: game.letters,
       used: game.used |> MapSet.to_list()
     }
   end

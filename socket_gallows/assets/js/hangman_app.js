@@ -22,12 +22,16 @@ let view = function(hangman) {
             game_state_message: function() {
                 let state = this.tally.game_state
                 if (state === "lost") {
-                  return "Boo you lost!!!1!"
+                  const word = this.tally.letters.join('').toUpperCase()
+                  return `You lost! The word was ${word}`
                 }
                 return RESPONSES[state][1]
             },
             game_state_class: function() {
                 let state = this.tally.game_state
+                if (state === "lost") {
+                  return "danger"
+                }
                 return RESPONSES[state][0]
             }
         },
