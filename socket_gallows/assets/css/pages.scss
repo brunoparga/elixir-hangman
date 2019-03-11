@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Gloria Hallelujah', cursive !important;
 }
@@ -68,13 +67,9 @@ svg path {
     transition: all 0.3s;
 }
 
-
-
-
 .new-game-button-container {
   width: 120px;
   height: 60%;
-
 }
 
 .new-game-button {
@@ -97,6 +92,20 @@ svg path {
 }
 .new-game-button:hover {
   -webkit-animation: none;
+}
+
+#game {
+  display: flex;
+}
+
+#gallows {
+   flex: 0 0 400px;
+   height: 800px;
+}
+
+#status {
+  flex: 1 1 auto;
+  margin: 30px;
 }
 
 @-webkit-keyframes pulse {

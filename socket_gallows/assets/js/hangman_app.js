@@ -1,6 +1,5 @@
 const RESPONSES = {
     won:          [ "success", "You Won!" ],
-    lost:         [ "danger",  "You Lost!" ],
     good_guess:   [ "success", "Good guess!" ],
     bad_guess:    [ "warning", "Bad guess!" ],
     already_used: [ "info",    "You already guessed that" ],
@@ -22,6 +21,9 @@ let view = function(hangman) {
             },
             game_state_message: function() {
                 let state = this.tally.game_state
+                if (state === "lost") {
+                  return "Boo you lost!!!1!"
+                }
                 return RESPONSES[state][1]
             },
             game_state_class: function() {

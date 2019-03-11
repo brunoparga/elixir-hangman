@@ -3,11 +3,11 @@
     {{ game_state_message }}
   </div>
 
-  <div class="row" >
-    <div style="max-width: 400px; max-height: 800px;">
+  <div id="game" >
+    <div id="gallows">
       <%= render "_gallows.html" %>
     </div>
-    <div>
+    <div id="status">
       <%= render "_status.html" %>
     </div>
   </div>
