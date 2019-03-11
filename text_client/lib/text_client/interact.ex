@@ -20,7 +20,8 @@ defmodule TextClient.Interact do
     )
   end
 
-  defp setup_state({pid, tally}) do
+  defp setup_state(pid) do
+    tally = Hangman.tally(pid)
     %State{game_service: pid, tally: tally}
   end
 end

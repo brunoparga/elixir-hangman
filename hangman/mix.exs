@@ -20,6 +20,7 @@ defmodule Hangman.MixProject do
 
   defp deps do
     [
+      {:jason, "~> 1.1"},
       {:dictionary, path: "../dictionary"}
     ]
   end
