@@ -1,13 +1,13 @@
 defmodule Robot.Player do
-  alias Robot.{AI, State, Summary}
+  alias Robot.{AI, Mover, State, Summary}
 
-  def play(%State{tally: %{game_state: :won}}) do
-    IO.puts("You WON!")
+  def play(%State{tally: %{game_state: :won, letters: letters}}) do
+    IO.puts("You WON! The word was #{reveal_word(letters)}")
     exit(:normal)
   end
 
-  def play(%State{tally: %{game_state: :lost}}) do
-    IO.puts("Sorry, you lost.")
+  def play(%State{tally: %{game_state: :lost, letters: letters}}) do
+    IO.puts("Sorry, you lost. The word was #{reveal_word(letters)}")
     exit(:normal)
   end
 
@@ -34,18 +34,11 @@ defmodule Robot.Player do
     game
     |> Summary.display()
     |> AI.choose_move()
-    |> update_state()
-    |> make_move()
+    |> Mover.make_move()
     |> play()
   end
 
-  defp update_state({game, input}) do
-    guesses = game.guesses ++ [input]
-    %State{game | guess: input, guesses: guesses}
-  end
-
-  defp make_move(game) do
-    tally = Hangman.make_move(game.game_service, game.guess)
-    %State{game | tally: tally}
+  defp reveal_word(letters) do
+    letters |> Enum.join("") |> String.upcase
   end
 end
