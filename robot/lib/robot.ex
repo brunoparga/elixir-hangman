@@ -1,3 +1,3 @@
 defmodule Robot do
-  defdelegate play_game, to: Robot.Client
+  defdelegate play, to: Robot.Client, as: :first_game
 end

@@ -1,14 +1,15 @@
 defmodule Robot.Player do
-  alias Robot.{AI, Mover, State, Summary}
+  alias Robot.{AI, Client, Mover, State, Summary}
 
-  def play(%State{tally: %{game_state: :won, letters: letters}}) do
-    IO.puts("You WON! The word was #{reveal_word(letters)}")
-    exit(:normal)
+  def play(game = %State{tally: %{game_state: :won}}) do
+    IO.puts("You WON! The word was #{reveal_word(game.tally.letters)}")
+    game = %State{game | wins: game.wins + 1}
+    if game.rounds > 1, do: Client.second_game(game), else: quit(game)
   end
 
-  def play(%State{tally: %{game_state: :lost, letters: letters}}) do
-    IO.puts("Sorry, you lost. The word was #{reveal_word(letters)}")
-    exit(:normal)
+  def play(game = %State{tally: %{game_state: :lost}}) do
+    IO.puts("Sorry, you lost. The word was #{reveal_word(game.tally.letters)}")
+    if game.rounds > 1, do: Client.second_game(game), else: quit(game)
   end
 
   def play(game = %State{tally: %{game_state: :good_guess}}) do
@@ -40,5 +41,10 @@ defmodule Robot.Player do
 
   defp reveal_word(letters) do
     letters |> Enum.join("") |> String.upcase
+  end
+
+  def quit(game) do
+    IO.puts("Won #{game.wins} out of 1000 games.")
+    exit(:normal)
   end
 end
