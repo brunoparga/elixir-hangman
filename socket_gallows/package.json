@@ -4,6 +4,6 @@
     "sass-loader": "7.1.0"
   },
   "dependencies": {
-    "vue": "2.6.10"
+    "vue": "2.6.12"
   }
 }
