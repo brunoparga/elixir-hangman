@@ -38,7 +38,7 @@ defmodule Jason.Mixfile do
       {:jiffy, "~> 0.14", only: :bench},
       {:json, "~> 1.0", only: :bench},
       {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.18", only: :docs}
+      {:ex_doc, "~> 0.22", only: :docs}
     ] ++ maybe_stream_data()
   end
 
