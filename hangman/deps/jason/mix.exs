@@ -35,7 +35,7 @@ defmodule Jason.Mixfile do
       {:exjsx, "~> 4.0", only: :bench},
       {:tiny, "~> 1.0", only: :bench},
       {:jsone, "~> 1.4", only: :bench},
-      {:jiffy, "~> 0.14", only: :bench},
+      {:jiffy, "~> 0.15", only: :bench},
       {:json, "~> 1.0", only: :bench},
       {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.18", only: :docs}
